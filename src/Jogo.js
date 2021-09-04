@@ -21,9 +21,9 @@ export default class Jogo extends Component {
   render() {
     const conta = (
       <div className={styles.conta}>
-        <div className={styles.valor}>a</div>
-        <div className={styles.valor}>b</div>
-        <div className={styles.valor}>c</div>
+        <div className={styles.valor}>7</div>
+        <div className={styles.valor}>x</div>
+        <div className={styles.valor}>8</div>
       </div>
     );
     const botoes = (
