@@ -37,7 +37,7 @@ export default class Jogo extends Component {
       if (!aux.includes(n))
         aux.push(n)
     }
-    return aux.map(n => n.toString())
+    return aux
   }
 
   gerarJogo = () => {
@@ -99,7 +99,7 @@ export default class Jogo extends Component {
           {this.state.alternativas.map((alternativa, indice) => (
             <Button 
               key={indice} 
-              className={`${styles.valor} ${styles.alternativa}`} label={alternativa}
+              className={`${styles.valor} ${styles.alternativa}`} label={alternativa?.toString()}
               onClick={() => {
                 this.iniciarRodada()
                 this.props.fAtualizarPontuacao(this.state.resultado === alternativa)}
