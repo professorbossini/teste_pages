@@ -31,16 +31,19 @@ export default class Jogo extends Component {
   }
 
   gerarAlternativas = (resultado) => {
-    let aux = [resultado.toString()]
+    let aux = [resultado]
     while (aux.length < 5){
-      let n = Math.floor (Math.random() * this.state.valorFinal) + this.state.valorInicial;
+      let n = Math.floor (Math.random() * this.state.valorFinal) + this.state.valorInicial
       if (!aux.includes(n))
-        aux.push(n.toString())
+        aux.push(n)
     }
-    return aux
+    return aux.map(n => n.toString())
   }
 
   gerarJogo = () => {
+    this.setState({
+      tempoRestante: 5
+    })
     let {n1, n2, simbolo, resultado} = this.gerarConta()
     let alternativas = this.gerarAlternativas(resultado)
     this.setState({
@@ -51,20 +54,19 @@ export default class Jogo extends Component {
   
 
   iniciarRodada = () => {
-    this.setState({
-      tempoRestante: 5
-    })
+  
     clearInterval(this.timerGeral)
     clearInterval(this.timerSegundoASegundo)
     let fire = (f, t) => {
       f()
+      this.timerSegundoASegundo = setInterval(() => {
+        this.setState({tempoRestante: this.state.tempoRestante - 1})
+      },1000);
       return setInterval(f, t)
     }
     this.timerGeral = fire(this.gerarJogo, this.state.intervaloAtualizacao)
     
-    this.timerSegundoASegundo = setInterval(() => {
-      this.setState({tempoRestante: this.state.tempoRestante - 1})
-    },1000);
+    
   }
 
   encerrar = () => {

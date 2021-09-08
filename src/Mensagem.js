@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 export default class Mensagem extends Component {
     render() {
         return (
-            <div className={styles.texto}>
+            <div className={`${styles.texto} ${this.props.className}`}>
                 {this.props.texto}
             </div>
         )
@@ -11,5 +11,5 @@ export default class Mensagem extends Component {
 }
 const styles = {
     texto:
-      'flex justify-content-center align-items-center border-round bg-red-100 shadow-2 h-4rem'
+      'flex justify-content-center align-items-center border-round bg-red-100 shadow-2 h-4rem text-3xl'
 }

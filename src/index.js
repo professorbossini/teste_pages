@@ -40,7 +40,11 @@ export default class App extends Component {
               fAtualizarPontuacao={this.atualizarPontuacao}
             />
             :
-            <Mensagem texto="Jogo encerrado" />
+            <div className="flex align-items-center h-full justify-content-center">
+                <Mensagem 
+                  texto="Clique para iniciar" 
+                  className="w-6"/>
+            </div>
           }        
         </div>
         <Botoes
@@ -48,8 +52,6 @@ export default class App extends Component {
           fEncerrar={() => this.alterarStatus('off')}
           fZerar={() => this.zerarPontuacao()}
         />
-        {'Acertos: ' + this.state.acertos}
-        {'Erros: ' + this.state.erros}
       </Cartao>
   
     )
