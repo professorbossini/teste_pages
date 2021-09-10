@@ -11,5 +11,6 @@ export default class Mensagem extends Component {
 }
 const styles = {
     texto:
-      'flex justify-content-center align-items-center border-round bg-red-100 shadow-2 h-4rem text-3xl'
+    //centraliza nos dois eixos, borda, background vermelho, sombra, altura
+      'flex justify-content-center align-items-center border-round bg-red-100 shadow-2 h-4rem'
 }

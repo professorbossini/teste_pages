@@ -12,9 +12,11 @@ export default class Cartao extends Component {
 
 const styles = {
   card: {
+    //função css var pega a cor associada à variável especificada
     backgroundColor: 'var(--blue-100)',
   },
-  inner: 'border-round bg-orange-50 w-8 p-2 m-auto',
+  //borda arredondada, background laranja, largura, padding, margin
+  inner: 'border-round bg-orange-50 md:w-10 w-full p-2 m-auto',
 };
 
 Cartao.defaultProps = {
